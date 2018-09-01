@@ -1,0 +1,61 @@
+:root {
+    --loader-dimension: 80px;
+    --loader-border-width: 6px;
+}
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.loading,
+.loading:before,
+.loading:after {
+    background: transparent;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: transparent;
+    border-top-color: #c2c2c2;
+    border-width: var(--loader-border-width);
+
+    animation-name: loader-ring;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+}
+
+.loading {
+    width: var(--loader-dimension);
+    height: var(--loader-dimension);
+    position: relative;
+}
+
+.loading:before {
+    content: "";
+    width: calc(var(--loader-dimension) - var(--loader-border-width) * 2);
+    height: calc(var(--loader-dimension) - var(--loader-border-width) * 2);
+    position: absolute;
+    margin: 0px;
+    animation-duration: 3s;
+}
+
+.loading:after {
+    content: "";
+    width: calc(var(--loader-dimension) - var(--loader-border-width) * 4);
+    height: calc(var(--loader-dimension) - var(--loader-border-width) * 4);
+    position: absolute;
+    margin: 6px;
+    animation-duration: 2s;
+}
+
+@keyframes loader-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
