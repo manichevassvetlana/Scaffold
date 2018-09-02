@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -23,7 +22,7 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        $userRole = 'user';
+        /*$userRole = 'user';
         $user = fire_auth()->user();
         switch (true) {
             case $user->isRole('Admin'):
@@ -38,7 +37,7 @@ class HomeController extends Controller
             case $user->isRole('Clerk'):
                 $userRole = 'clerk';
                 break;
-        }
-        return redirect()->route($userRole.'Dashboard');
+        }*/
+        return redirect()->route('adminDashboard');
     }
 }
