@@ -20,8 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Admin Panel Routes
 Route::group(['middleware' => 'auth:api', 'name' => 'api.'], function(){
 
-    //Route::get('/countries', 'Admin\AdminCountryController@countries');
-    // Resources
     Route::resources([
         'countries' => 'Admin\AdminCountryController',
         'states' => 'Admin\AdminStateController',

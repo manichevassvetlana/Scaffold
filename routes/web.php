@@ -23,21 +23,6 @@ Route::group(['prefix' => 'mail', 'middleware' => 'auth'], function () {
     Route::post('/invitation', 'EmailController@invite');
 });
 
-Route::post('/pay/{plan}', [
-    'uses' => 'PlanController@postPayWithStripe',
-    'as' => 'pay',
-    'middleware' => 'auth'
-]);
-
-
-Route::get('/plans', function () {
-    return view('test-payment', ['plans' => \App\Plans::all()]);
-});
-
-Route::get('/tokens/generate', function () {
-    return view('api-generation');
-})->name('token-generate');
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
