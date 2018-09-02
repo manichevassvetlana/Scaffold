@@ -15,7 +15,7 @@ class Pages extends DocumentSnapshot
 
     protected $appends = [
         'name', 'type', 'description', 'title', 'content', 'layout', 'author',
-        'excerpt', 'meta_description', 'meta_keywords', 'image', 'updated_by', 'page_id', 'updated_at', 'user_id'
+        'excerpt', 'meta_description', 'meta_keywords', 'image', 'updated_by', 'updated_at'
     ];
 
     public $isRemovable = true;

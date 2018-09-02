@@ -21,6 +21,8 @@
         "pusher/pusher-php-server": "^3.0",
         "websolutions/firestore": "^0.0.4"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require-dev": {
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
@@ -64,7 +66,5 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }

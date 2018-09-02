@@ -16,20 +16,25 @@ class FillPagesCollection extends Seeder
             ['slug' => 'testing1',
                 'status' => getLookupValue('PAGE_STATUS', 'Draft')->id,
                 'created_by' => \App\Users::first()->id,
-                'version_id' => 1],
-            ['slug' => 'testing2',
-                'status' => getLookupValue('PAGE_STATUS', 'Published')->id,
-                'created_by' => \App\Users::first()->id,
-                'version_id' => 1],
-            [
-                'slug' => 'testing3',
-                'status' => getLookupValue('PAGE_STATUS', 'Draft')->id,
-                'created_by' => \App\Users::first()->id,
-                'version_id' => 2],
-            ['slug' => 'testing4',
-                'status' => getLookupValue('PAGE_STATUS', 'Published')->id,
-                'created_by' => \App\Users::first()->id,
-                'version_id' => 2],
+                'version_id' => 0,
+                'versions' => [
+                    0 => [
+                        'name' => 'Test',
+                        'type' => getLookupValue('PAGE_TYPE', 'about')->id,
+                        'description' => 'Test',
+                        'title' => 'Test',
+                        'content' => 'Test',
+                        'layout' => getLookupValue('PAGE_LAYOUT', 'app')->id,
+                        'author' => \App\Users::first(),
+                        'excerpt' => 'Test',
+                        'meta_description' => 'test',
+                        'meta_keywords' => 'test',
+                        'image' => null,
+                        'updated_by' => \App\Users::first(),
+                        'updated_at' => \Carbon\Carbon::now()
+                    ]
+                ]
+            ],
         ]);
     }
 }

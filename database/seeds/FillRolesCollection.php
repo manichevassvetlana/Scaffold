@@ -22,6 +22,6 @@ class FillRolesCollection extends Seeder
             ['name' => 'Organization User', 'type' => getLookupValue('ROLE_TYPE', 'Organization')->id],
         ]);
 
-        \App\Users::where('email', 'admin@admin.com')->first()->update(['roles' => [\App\Roles::where('name', 'Admin')]]);
+        \App\Users::where('email', 'admin@admin.com')->first()->update(['roles' => [\App\Roles::where('name', 'Admin')->first()]]);
     }
 }
