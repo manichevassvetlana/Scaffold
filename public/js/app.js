@@ -15048,12 +15048,7 @@ window.Vue = __webpack_require__(15);
 
 
 var config = {
-    apiKey: "AIzaSyAn6yZgoPKInPos956t2Wb_2R_z9_qPAUI",
-    authDomain: "scaffold-1529653667418.firebaseapp.com",
-    databaseURL: "https://scaffold-1529653667418.firebaseio.com",
-    projectId: "scaffold-1529653667418",
-    storageBucket: "scaffold-1529653667418.appspot.com",
-    messagingSenderId: "263967284107"
+    // Firebase configs
 };
 __WEBPACK_IMPORTED_MODULE_0_firebase___default.a.initializeApp(config);
 
