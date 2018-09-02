@@ -38,10 +38,11 @@ class FillUsersCollection extends Seeder
         $err = curl_error($curl);
 
         curl_close($curl);
-        $response = json_decode($response);
+        $token = (new \Lcobucci\JWT\Parser())->parse((string) (json_decode($response))->idToken);
+        $uid = $token->getClaim('user_id');
         if (!$err) {
             $users = new \App\Users();
-            $users->create(['id' => $response->idToken ,'email' => 'admin@admin.com', 'name' => 'Admin'], true);
+            $users->create(['id' => $uid ,'email' => 'admin@admin.com', 'name' => 'Admin'], true);
         }
     }
 }
