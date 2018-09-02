@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FillEntityRelationshipsCollection::class);
         $this->call(FillCountriesCollection::class);
         $this->call(FillStatesCollection::class);
+        $this->call(FillCitiesCollection::class);
         $this->call(FillCountiesCollection::class);
         $this->call(FillPostalCodesCollection::class);
         $this->call(FillAddressesCollection::class);
