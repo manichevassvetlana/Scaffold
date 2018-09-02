@@ -20,11 +20,11 @@ class FillPagesCollection extends Seeder
                 'versions' => [
                     0 => [
                         'name' => 'Test',
-                        'type' => getLookupValue('PAGE_TYPE', 'about')->id,
+                        'type' => getLookupValue('PAGE_TYPE', 'about'),
                         'description' => 'Test',
                         'title' => 'Test',
                         'content' => 'Test',
-                        'layout' => getLookupValue('PAGE_LAYOUT', 'app')->id,
+                        'layout' => getLookupValue('PAGE_LAYOUT', 'app'),
                         'author' => \App\Users::first(),
                         'excerpt' => 'Test',
                         'meta_description' => 'test',
