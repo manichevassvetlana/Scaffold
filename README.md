@@ -3,7 +3,7 @@
 1. Require the Package
 
 You can create your new Scaffold app with the following command:</br>
-composer create-project --stability=dev websolutions/scaffold test
+<code>composer create-project --stability=dev websolutions/scaffold test</code>
 
 2. Add Google Credentials
 
