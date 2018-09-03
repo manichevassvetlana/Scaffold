@@ -137,7 +137,7 @@
                                                         setMapOnAll(null);
                                                     }
                                                 </script>
-                                                <script src="{{'https://maps.googleapis.com/maps/api/js?key='.env('GOOGLE_MAPS_KEY').'&language=en&callback=myMap'}}"></script>
+                                                <script src="{{'https://maps.googleapis.com/maps/api/js?key='.env('FIREBASE_API_KEY').'&language=en&callback=myMap'}}"></script>
                                             </div>
                                         @elseif($fieldName['type'] === 'editor')
                                             <div class="col-md-12">
