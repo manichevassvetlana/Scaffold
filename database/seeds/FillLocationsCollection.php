@@ -15,7 +15,7 @@ class FillLocationsCollection extends Seeder
         $resources = new \App\Locations();
         $address = \App\Addresses::first();
         $resources->insert([
-            ['id' => 1, 'position' => new \Google\Cloud\Datastore\GeoPoint(30.549298, -95.353900), 'country_id' => $address->first()->id, 'name' => 'Home', 'description' => 'Test address.']
+            ['id' => 1, 'position' => new \Google\Cloud\Datastore\GeoPoint(30.549298, -95.353900), 'country_id' => $address->first()->id, 'name' => ' Test', 'description' => 'Test address.']
         ]);
     }
 }
