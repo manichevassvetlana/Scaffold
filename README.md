@@ -7,7 +7,7 @@ You can create your new Scaffold app with the following command:</br>
 
 2. Add Google Credentials
 
-Next make sure to create a Firestore project and add path to your credentials file to your .env file:</br>
+Next make sure to create a Firestore project and add path to file with your service account credentials to .env file:</br>
 <code>GOOGLE_APPLICATION_CREDENTIALS = "GCFSCredentials.json"</code></br>
 To create a new Firestore project follow this quide: https://firebase.google.com/docs/firestore/quickstart</br>
 
