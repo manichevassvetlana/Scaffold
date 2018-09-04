@@ -18,7 +18,7 @@ To get started with Cloud Firestore:</br>
 -> Select a starting mode for your Cloud Firestore Security Rules - <b>Locked mode</b>.</br>
 -> Click Enable.</br>
 <i>2. Set up your development environment</i></br>
-To authenticate from your development environment, set the <code>GOOGLE_APPLICATION_CREDENTIALS</code> environment variable to point to a JSON service account key file. You can create a key file on the <a href="https://console.cloud.google.com/apis/credentials/serviceaccountkey">API Console</a> Credentials page after setting up a service account.
+To authenticate from your development environment, set the <code>GOOGLE_APPLICATION_CREDENTIALS</code> environment variable to point to a JSON service account key file. You can create a key file on the <a href="https://console.cloud.google.com/apis/credentials/serviceaccountkey">API Console</a> Credentials page after setting up a service account. Download the key file to your project and public folders.
 
 You will also need to add Firebase credentials to your app.</br>
 Add Firebase API key to your .env file:</br>
