@@ -2,8 +2,8 @@
 @section('title') Profile @endsection
 @section('content')
     <div class="profile">
-        @if(fire_auth()->user()->image != 0)
-            <img src="{{ asset(Storage::url(fire_auth()->user()->image))}}" class="profile-img">
+        @if(fire_auth()->user()->image !== 0)
+            <img src="{{ fire_auth()->user()->image}}" class="profile-img">
         @else
             <img src="{{ asset('admin/assets/imgs/avatar-1.png') }}" class="profile-img">
         @endif

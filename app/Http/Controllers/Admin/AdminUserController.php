@@ -67,9 +67,9 @@ class AdminUserController extends ResourceController
             $search = trim($request->q);
             $users = new Users();
             $users = $users
-                        ->select(["id","name","email"])
-                        ->where($users->searchField, "=", $search)
-                        ->get();
+                ->select(["id","name","email"])
+                ->where($users->searchField, "=", $search)
+                ->get();
         }
         return $users;
 
@@ -98,13 +98,9 @@ class AdminUserController extends ResourceController
     public function updateProfile(Request $request)
     {
         if($request->hasFile('image') && $request->file('image')){
-            $this->validate($request, [
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ]);
-            $image = $request->file('image');
-            if(fire_auth()->user()->image != 0) FileController::remove(fire_auth()->user()->image);
-            $path = FileController::store($image);
-            fire_auth()->user()->update(['image' => $path, 'name' => $request->name]);
+            $image = $request['profile-image'];
+            if(fire_auth()->user()->image !== 0) FileController::remove(fire_auth()->user()->image);
+            fire_auth()->user()->update(['image' => $image, 'name' => $request->name]);
         }
         return $this->profile();
     }
@@ -120,5 +116,5 @@ class AdminUserController extends ResourceController
         Auth::user()->leaveImpersonation();
         return redirect('/dashboard');
     }
-    
+
 }

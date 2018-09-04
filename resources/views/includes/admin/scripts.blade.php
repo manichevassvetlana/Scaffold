@@ -56,13 +56,13 @@
                 dangerMode: true,
             })
                 .then((willUpdate) => {
-                    if (willUpdate) {
-                        form.submit();
-                    } else {
-                        swal('The record was not created.');
-                        return false;
-                    }
-                });
+                if (willUpdate) {
+                    form.submit();
+                } else {
+                    swal('The record was not created.');
+            return false;
+        }
+        });
         } else form.submit();
         return false;
     }
@@ -87,11 +87,11 @@
         console.log(path);
         axios.delete(path + '/' + id).then(response => {
             if(response.data == 1) location.reload();
-            else if(response.data.status == 0) removeResourceAction(response.data);
-            else swal('Delete related records from ' + response.data + ' before you can delete this record.');
-        }).catch(e => {
+    else if(response.data.status == 0) removeResourceAction(response.data);
+        else swal('Delete related records from ' + response.data + ' before you can delete this record.');
+    }).catch(e => {
             console.log(e);
-        });
+    });
     }
 
     function removeResourceAction(json){
@@ -103,16 +103,16 @@
             dangerMode: true,
         })
             .then((willRemove) => {
-                if (willRemove) {
-                    axios.delete(json.path).then(response => {
-                        location.reload();
-                    }).catch(e => {
-                        console.log(e);
-                    });
-                } else {
-                    swal('The record was not deleted.');
-                }
+            if (willRemove) {
+                axios.delete(json.path).then(response => {
+                    location.reload();
+            }).catch(e => {
+                    console.log(e);
             });
+            } else {
+                swal('The record was not deleted.');
+    }
+    });
     }
 
     /*** Organization - User - Roles start ***/
@@ -165,17 +165,17 @@
                     end_date: newRole.end_date,
                     role_id: "" + newRole.role_id
                 }, button.attr('id'));
-                if (response.data.status == 1 && answ.status == 1) {
-                    editRoleBtnClick(button, tr, oldValue, isRecorded, elementId, newRole);
-                    jQuery('#pivot-roles-edit-modal').modal("hide");
-                }
-                else {
-                    if (response.data.status != 1) actionOrgUserRole(response.data);
-                    else if (answ.status != 1) actionOrgUserRole(answ);
-                }
-            }).catch(e => {
+            if (response.data.status == 1 && answ.status == 1) {
+                editRoleBtnClick(button, tr, oldValue, isRecorded, elementId, newRole);
+                jQuery('#pivot-roles-edit-modal').modal("hide");
+            }
+            else {
+                if (response.data.status != 1) actionOrgUserRole(response.data);
+                else if (answ.status != 1) actionOrgUserRole(answ);
+            }
+        }).catch(e => {
                 console.log(e);
-            });
+        });
 
         });
 
@@ -187,9 +187,9 @@
         if (isRecorded) {
             axios.put('/admin/organization-user-roles/' + id + '/update', newRole).then(response => {
                 updateRole(btn, tr, newRole);
-            }).catch(e => {
+        }).catch(e => {
                 console.log(e);
-            });
+        });
         }
         else {
             let index = getArrayKey(pivot, oldValue);
@@ -213,10 +213,10 @@
         if(isRemovable){
             axios.post('/admin/organization-user-roles/' + id, {user_id: '{{strrpos(Route::currentRouteName(), "users") !== false ? $resource->id : 'lol'}}'}).then(response => {
                 tr.remove();
-                swal('The record was deleted.');
-            }).catch(e => {
+            swal('The record was deleted.');
+        }).catch(e => {
                 console.log(e);
-            });
+        });
         }
         else{
             pivot.splice(getArrayKeyById(pivot, 'element_id', id), 1);
@@ -278,18 +278,18 @@
         let dateEnd = new Date(role.end_date);
         axios.post('/admin/organization-user-roles/validate', role).then(response => {
             let answ = validateRole({start_date: role.start_date, end_date: role.end_date, role_id: "" + role.role_id});
-            if (response.data.status == 1 && answ.status == 1) {
-                addOrganizationUserRole(role);
-                jQuery('#pivot-roles-add-modal').modal("hide");
-                swal("Good job!", response.data.message, "success");
-            }
-            else {
-                if (response.data.status != 1) actionOrgUserRole(response.data);
-                else if (answ.status != 1) actionOrgUserRole(answ);
-            }
-        }).catch(e => {
+        if (response.data.status == 1 && answ.status == 1) {
+            addOrganizationUserRole(role);
+            jQuery('#pivot-roles-add-modal').modal("hide");
+            swal("Good job!", response.data.message, "success");
+        }
+        else {
+            if (response.data.status != 1) actionOrgUserRole(response.data);
+            else if (answ.status != 1) actionOrgUserRole(answ);
+        }
+    }).catch(e => {
             console.log(e);
-        });
+    });
     }
 
     function getArrayKeyById(array, idName, id){
@@ -441,15 +441,15 @@
                 dangerMode: true,
             })
                 .then((willChange) => {
-                    if (willChange) {
-                        let elId = "" + json.id;
-                        console.log(elId);
-                        console.log(elId.indexOf('new-record') + 1);
-                        (elId.indexOf('new-record') + 1) ? document.getElementById(elId).click() : document.getElementById('old-record-' + elId).click();
-                    } else {
-                        swal("Ok");
-                    }
-                });
+                if (willChange) {
+                    let elId = "" + json.id;
+                    console.log(elId);
+                    console.log(elId.indexOf('new-record') + 1);
+                    (elId.indexOf('new-record') + 1) ? document.getElementById(elId).click() : document.getElementById('old-record-' + elId).click();
+                } else {
+                    swal("Ok");
+        }
+        });
         }
         else if (json.action === 1) swal(json.message, json.solution, "warning");
 
@@ -787,6 +787,7 @@
         reader.onload = function () {
             var output = document.getElementById('user-img');
             output.src = reader.result;
+            document.getElementById('profile-image').value = reader.result;
         };
         reader.readAsDataURL(event.target.files[0]);
     });
@@ -853,7 +854,7 @@
         axios.put('/announcements/' + id + '/read').then(response => {
         }).catch(e => {
             console.log(e);
-        });
+    });
     }
 
     function sendInvitation() {
@@ -861,20 +862,20 @@
         $('#btn-owner-invite').css({"display": 'none'});
         axios.post('/mail/invitation', {receiver: document.getElementById('email-owner').value}).then(response => {
             $('#loader-owner-invite').css({"display": 'none'});
-            $('#btn-owner-invite').css({"display": ''});
-            alert('Success');
-        }).catch(e => {
+        $('#btn-owner-invite').css({"display": ''});
+        alert('Success');
+    }).catch(e => {
             alert('Invitation was not sent');
-            console.log(e);
-        });
+        console.log(e);
+    });
     }
 
     $('#leave-company').click(function () {
         axios.put('/organization/leave').then(response => {
             $('#org-section').html('');
-        }).catch(e => {
+    }).catch(e => {
             console.log(e);
-        });
+    });
     });
 
     $('#page-version-modal').on('show.bs.modal', function (event) {
@@ -885,9 +886,9 @@
     function sendVersion(id) {
         axios.put('/admin/pages/' + id + '/version', {version: document.getElementById('version').value}).then(response => {
             window.location = '/admin/pages/' + id + '/edit';
-        }).catch(e => {
+    }).catch(e => {
             console.log(e);
-        });
+    });
     }
 
 </script>

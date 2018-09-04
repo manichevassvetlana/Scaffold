@@ -23,12 +23,13 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="user-name" class="require">User Image</label>
-                                    <img src="{{ fire_auth()->user()->image != 0 ? asset(Storage::url(fire_auth()->user()->image)) : asset('admin/assets/imgs/avatar-1.png') }}"
+                                    <img src="{{ fire_auth()->user()->image !== 0 ? fire_auth()->user()->image : asset('admin/assets/imgs/avatar-1.png') }}"
                                          class="profile-img"
                                          style="margin-left: 0; margin-bottom: 5%; cursor: pointer; width: 150px; height: 150px;"
                                          onclick="document.getElementById('file-input').click()" id="user-img">
                                     <input name="image" id="file-input" type="file" style="display:none"
                                            accept="image/x-png,image/gif,image/jpeg">
+                                    <input type="text" style="display:none" name="profile-image" id="profile-image">
                                 </div>
                             </div>
 

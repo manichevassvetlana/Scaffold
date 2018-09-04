@@ -11,8 +11,13 @@ window.Vue = require('vue');
 
 import firebase from 'firebase';
 
-let config = {
-    // Firebase configs
+var config = {
+    apiKey: "AIzaSyCxdVWM-njmMd5LgmRirWmZ8U73nml5Vpc",
+    authDomain: "test2-b3af7.firebaseapp.com",
+    databaseURL: "https://test2-b3af7.firebaseio.com",
+    projectId: "test2-b3af7",
+    storageBucket: "test2-b3af7.appspot.com",
+    messagingSenderId: "654271186293"
 };
 firebase.initializeApp(config);
 
