@@ -48,12 +48,9 @@ class LoginController extends Controller
     public function setToken($token)
     {
         if (!isset($_SESSION)) session_start();
-        if (isset($_SESSION['access_token']) && $_SESSION['access_token']) return $this->redirectTo;
-        else {
-            if(!Auth::checkByToken($token)) return '/login';
-            $_SESSION['access_token'] = $token;
-            return $this->redirectTo;
-        }
+        if(!Auth::checkByToken($token)) return '/login';
+        $_SESSION['access_token'] = $token;
+        return $this->redirectTo;
     }
 
     public function logout()
